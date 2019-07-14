@@ -1,8 +1,7 @@
 # Arkhipenka Andrei
 ##
  BSU 2014
-
-[**europeoplebelarus@gmail.com**](malito:europeoplebelarus@gmail.com)
+[**europeoplebelarus@gmail.com**](mailto:europeoplebelarus@gmail.com)
 
  +375291238873
 

@@ -1,13 +1,21 @@
+var array = ["a", "ab", "v", "c", "a", "dad"];
 
 function createAutoComplete(arr){
-	let names = arr;
+	var names = arr;
 	function autoComplete(inp){
-		names = [];
-		return names;
-		
-		
+
+		var newName = [];
+
+		for (var i = 0; i < names.length; i++) {
+			
+			if (names[i] === inp || 0 == names[i].indexOf(inp)){
+				newName.push(names[i]);
+			}
+		}
+		return newName;
 	}
 return autoComplete;
 }
-var autoComplete = createAutoComplete();
-autoComplete();
+
+var autoComplete = createAutoComplete(array);
+autoComplete("a");

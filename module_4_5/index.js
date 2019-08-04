@@ -19,3 +19,5 @@ return autoComplete;
 
 var autoComplete = createAutoComplete(array);
 autoComplete("a");
+
+module.exports = createAutoComplete;

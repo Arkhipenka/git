@@ -1,12 +1,12 @@
-var array = ["a", "ab", "v", "c", "a", "dad"];
+let array = ["a", "ab", "v", "c", "a", "dad"];
 
 function createAutoComplete(arr){
-	var names = arr;
+	let names = arr;
 	function autoComplete(inp){
 
-		var newName = [];
+		let newName = [];
 
-		for (var i = 0; i < names.length; i++) {
+		for (let i = 0; i < names.length; i++) {
 			
 			if (names[i] === inp || 0 == names[i].indexOf(inp)){
 				newName.push(names[i]);
@@ -14,10 +14,10 @@ function createAutoComplete(arr){
 		}
 		return newName;
 	}
-return autoComplete;
+  return autoComplete;
 }
 
-var autoComplete = createAutoComplete(array);
+let autoComplete = createAutoComplete(array);
 autoComplete("a");
 
-module.exports = createAutoComplete;
+module.exports.createAutoComplete = createAutoComplete;

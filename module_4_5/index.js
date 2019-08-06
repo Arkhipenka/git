@@ -1,23 +1,27 @@
-let array = ["a", "ab", "v", "c", "a", "dad"];
+
 
 function createAutoComplete(arr){
 	let names = arr;
-	function autoComplete(inp){
 
+	function autoComplete(inp){
 		let newName = [];
 
-		for (let i = 0; i < names.length; i++) {
-			
-			if (names[i] === inp || 0 == names[i].indexOf(inp)){
-				newName.push(names[i]);
+		if(inp){
+			for (let i = 0; i < names.length; i++) {
+				let a = inp.toUpperCase();
+				let b = names[i];
+				let c = b.toUpperCase();
+				if (c === a || 0 == c.indexOf(a)){
+					newName.push(b);
+				}
 			}
+		}else{
+		newName = [];
 		}
 		return newName;
+
 	}
   return autoComplete;
 }
-
-let autoComplete = createAutoComplete(array);
-autoComplete("a");
 
 module.exports.createAutoComplete = createAutoComplete;

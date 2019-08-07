@@ -1,5 +1,3 @@
-
-
 function createAutoComplete(arr){
 	let names = arr;
 
@@ -8,11 +6,8 @@ function createAutoComplete(arr){
 
 		if(inp){
 			for (let i = 0; i < names.length; i++) {
-				let a = inp.toUpperCase();
-				let b = names[i];
-				let c = b.toUpperCase();
-				if (c === a || 0 == c.indexOf(a)){
-					newName.push(b);
+				if (names[i].toLowerCase() === inp.toLowerCase() || 0 == names[i].toLowerCase().indexOf(inp.toLowerCase())){
+					newName.push(names[i]);
 				}
 			}
 		}else{

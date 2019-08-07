@@ -1,12 +1,20 @@
 function createAutoComplete(arr){
+	let names = arr;
 
 	function autoComplete(inp){
-		if(!inp){
-		 return [];
+		let newName = [];
+
+		if(inp){
+			for (let i = 0; i < names.length; i++) {
+				if (names[i].toLowerCase() === inp.toLowerCase() || 0 == names[i].toLowerCase().indexOf(inp.toLowerCase())){
+					newName.push(names[i]);
+				}
+			}
+		}else{
+		newName = [];
 		}
-		return arr.filter(item => item.toLowerCase().indexOf(inp.toLowerCase(inp)) === 0);
-		
-		
+		return newName;
+
 	}
   return autoComplete;
 }

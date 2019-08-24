@@ -1,5 +1,5 @@
 function createAutoComplete(arr){
-
+	
 	function autoComplete(inp){
 		if(!inp){
 		 return [];

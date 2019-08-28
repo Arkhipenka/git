@@ -25,7 +25,7 @@ function filter(arr, value){
   
     let array = [];
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === value || String(arr[i]).toLowerCase() === String(value).toLowerCase() || 0 == String(arr[i]).toLowerCase().indexOf(String(value).toLowerCase())){
+      if (arr[i] === value ){
         array.push(arr[i]);
       }
     }
@@ -90,10 +90,14 @@ function zip(arr){
 
 	}return array;
 }
+
 function map(arr, operation){
 	let array = [];
 	for (var i = 0; i < arr.length; i++) {
-		array.push(arr[i](operation));
+		let parameter = operation;
+		return parameter;
+		array.push(arr[i])
+
 	}
 	return array;
 }

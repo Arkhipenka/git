@@ -1,10 +1,23 @@
-//доработать
-function сhunck(arr, n){
-    n = n || 1;
+function chunck(arr, n){
+  	n = n || 1;
     let arrResult = [];
-    for (let i = 0; i < arr.length; i += n){
-        arResult.push(arr[i]);
-    }
+    let k = 0;
+    if(n > arr.length){
+        arrResult = arr;
+    }else if(n === arr.length){
+        arrResult.push(arr);
+    }else{
+        let arrResultLength = Math.floor(arr.length % n) === 0 ? Math.floor(arr.length/n) : Math.floor(arr.length/n) + 1;
+        for (let i = 0; i < arrResultLength; i++){
+            arrResult.push([]);
+            for(let j = k; j <arr.length; j++){
+                if(arrResult[i].length < n){
+                    arrResult[i].push(arr[j]);
+                }
+            } 
+            k += n;
+        }
+    } 
     return arrResult;
 }
 
@@ -29,9 +42,16 @@ function drop(arr, n){
 }
 // доработать
 function dropWhile(arr, predicate){
+	for (let i = -1; ++i < arr.length && predicate(arr[i]); i++) {	
+	}
+	return drop(arr, i);
+}
+
+function take(arr, n){
+	let size = n || 1;
 	let arrResult = [];
-	for (let i = -1; ++i < arr.length && predicate(arr[i]); i++) {
-		arResult.push(arr[i]);
+	for (let i = 0; i < size; i++) {
+		arrResult.push(arr[i]);
 	}
 	return arrResult;
 }
@@ -47,9 +67,6 @@ function filter(arr, predicate){
     return arrResult;
 }
 
-
-
-   
 function find(arr, predicate, n){
 	let answer;
 	n = n || 0;
@@ -61,15 +78,6 @@ function find(arr, predicate, n){
 		return answer;
 	}
 }
-
-function take(arr, n){
-	let size = n || 1;
-	let arrResult = [];
-	for (let i = 0; i < size; i++) {
-		arrResult.push(arr[i]);
-	}
-	return arrResult;
-}
 //доделать
 function includes(arr, value, n){
 	let answer = false;
@@ -80,7 +88,7 @@ function includes(arr, value, n){
 	}else if(typeOf(value) === 'string' && typeOf(arr) === 'string'){
 		return arr.includes(value, n);
 	}else if(n >= 0){
-		for (var i = n; i < arr.length; i++) {
+		for (let i = n; i < arr.length; i++) {
 			if(arr[i] === value){
 				answer = true;
 				break;
@@ -106,35 +114,82 @@ function map(arr, iteratee){
 	}
 	return arrResult;
 }
-//доработать
-function zip(...arr){
-	let arrResult = [];
-	arrResult.length = arr[0].length;
-	let itemArr = [];
-	for (var i = 1; i < arr.length; i++) {
-		for (let array of arr) {
-			
-				itemArr.push(array[i]);
-	
-		}
-		arrResult[i].push(itemArr)
-		
 
+function zip(...arrays){
+	let arrResult = [];
+	let arrResultLength = arrays[0].length;
+	let currentArr = [];
+	for (var i = 0; i < arrResultLength; i++) {
+	    let k = 0;
+		for (let array of arrays) {
+			currentArr[k++] = array[i];
+		}
+		arrResult[i] = currentArr;
+		currentArr = [];
 	}
 	return arrResult;
 }
 
 
 
-function merge(arg, arg1){
-
-
+function merge(obj, other){
+	const object = {};
+	let array = [];
+	for(let key in obj){
+		array.push(obj[key])
+		for(key in other){
+			object
+		}
+	}
+	return array;
 }
 
-function pick(arg1, arg2, ... argn){
-
+function omit(obj, paths){
+	const object = {};
+	for(let key in obj){
+		let isDeep = false;
+		if(key === item){
+			isDeep = true;
+			break
+		}else if(!isDeep){
+			object[key] = obj[key];
+		}
+	}
+	return object;
 }
 
-function omitBy(){
-
+function omitBy(obj, predicate){
+	const object = {};
+	for(let key in obj){
+		let objResult = predicate(obj[key], key);
+		if(!objResult){
+			object[key] = obj[key];
+		}
+	}
+	return object;
 }
+
+function pick(obj, paths){
+	const object = {};
+   	for(let item of paths){
+       	object[i] = obj[i];
+    }
+   	return object;	
+}
+
+function pickBy(obj, predicate){
+	const object = {};
+	if (obj == null) {
+		return {}
+	}
+	for (let key in obj){
+		let objectResult = predicate(obj[key],key);
+		if(objectResult){
+			object[key] = obj[key];
+		}
+		
+	}
+	return object;
+}
+
+function 

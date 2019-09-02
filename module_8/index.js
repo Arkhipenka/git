@@ -35,6 +35,8 @@ function square(n) {
 console.log(lodash.map([2, 6], square));
 console.log(lodash.map([[2,3,4,5], item => item *2));
 
+console.log(lodash.merge({'a': [{'b':1},{'d':3},{'f':6}]},{'a' : [{'c':2},{'e':4},{'t':7}]});
+
 let object = { 'a': 1, 'b': '2', 'c': 3 };
 console.log(lodash.omit(object, ['a', 'c'], ));
 
@@ -47,3 +49,5 @@ function even(item){
     return item%2=== 0;
 }
 console.log(lodash.pickBy(obj, even));
+
+console.log(lodash.toPairs({'a':1,'b':2}));

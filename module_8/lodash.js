@@ -136,17 +136,28 @@ function zip(...arrays){
 
 
 
-function merge(obj, other){
-	const object = {};
-	let array = [];
-	for(let key in obj){
-		array.push(obj[key])
-		for(key in other){
-			object
-		}
-	}
-	return array;
+function merge(obj,other){
+  let result = {};
+  let object = {};
+  let arrays = [];
+  for(let key in obj){
+    let array = obj[key];
+    for(let key in other){
+      let arr = other[key];
+      for(let i = 0; i < arr.length; i++){
+        for(let key in arr[i]){
+          array[i][key] = arr[i][key];
+        }
+        arrays.push(array[i]);
+      }
+      
+    }
+    obj[key] = arrays;
+    result = obj;
+  }
+  return result;
 }
+
 
 function omit(obj, paths){
 	const object = {};

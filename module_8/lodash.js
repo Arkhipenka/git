@@ -42,9 +42,10 @@ function drop(arr, n){
 }
 // доработать
 function dropWhile(arr, predicate){
-	for (let i = -1; ++i < arr.length && predicate(arr[i]); i++) {	
+	index = -1
+	while ( ++i < arr.length && predicate(arr[index])) {	
 	}
-	return drop(arr, i);
+	return drop(arr,index);
 }
 
 function take(arr, n){
@@ -78,16 +79,19 @@ function find(arr, predicate, n){
 		return answer;
 	}
 }
-//доделать
+
 function includes(arr, value, n){
 	let answer = false;
-	if (!n) {
+	if (n === undefined) {
 		n = 0;
-	}else if(n < 0){
+	}
+	if(n < 0){
 		n = arr.length + n - 1;
-	}else if(typeOf(value) === 'string' && typeOf(arr) === 'string'){
+	}
+	if(typeof(value) === 'string' && typeof(arr)  === 'string'){
 		return arr.includes(value, n);
-	}else if(n >= 0){
+	}
+	if(n >= 0){
 		for (let i = n; i < arr.length; i++) {
 			if(arr[i] === value){
 				answer = true;
@@ -192,4 +196,33 @@ function pickBy(obj, predicate){
 	return object;
 }
 
-function 
+function toPairs(obj){
+    let arr = [];
+    for(let key in obj){
+    	let array = [];
+        array.push(key);
+        array.push(obj[key]);
+        arr.push(array);
+    }
+    return arr;
+}
+
+
+module.exports =  {
+    chunk,
+    map,
+    includes,
+    compact,
+    drop,
+    dropWhile,
+    take,
+    filter,
+    find,
+    zip,
+    merge,
+    pick,
+    pickBy,
+    omit,
+    omitBy,
+    toPairs
+};

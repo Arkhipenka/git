@@ -4,14 +4,13 @@ window.addEventListener('load', function(event){
 	nav.id = "nav";
 
 	for(let i = 0; i < arrNav.length; i++){
-		nav.innerHTML += "<a href='#'>" + arrNav[i] + "</a>";
+		if(i === 0){
+			nav.innerHTML += "<a herf='#' class='focus'>" + arrNav[i] + "</a>"
+		}else{
+			nav.innerHTML += "<a href='#'>" + arrNav[i] + "</a>";
+		}
+		
 		
 	}
 	document.body.insertBefore(nav,document.body.firstChild);
-	//form.innerHTML = "<a href='#'>General</a>";
-		//document.body.insertBefore(form, document.body.firstChild);
-
-		//let div = document.createElement('div');
-				//div.id = 'div';
-		//document.body.appendChild(div);
 })

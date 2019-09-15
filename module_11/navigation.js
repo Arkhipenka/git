@@ -21,27 +21,25 @@ window.addEventListener('load', function(event){
 		
 	}
 	window.addEventListener('keydown', function(event){
-		
 		let arrLink = document.getElementsByTagName('a');
 		arrLink[index].classList.remove('focus');
-		const key = event.key;
 		
-			if(event.key = 'ArrowLeft'){
+			if(event.key == 'ArrowLeft'){
 					index--;
 				if(index === -1){
 					index = arrLink.length - 1;
 				}
-			}
-			if(event.key = 'ArrowRight'){
+
+			}else if(event.key == 'ArrowRight'){
+				index++;
 				if (index === arrLink.length) {
 					index = 0;
 				}			
 			}
+	
 		
-		/*if(index === -1){
-			index = arrLink.length - 1;
-		}*/
-		
+		const key = event.key;
+		console.log(index);
 		arrLink[index].classList.add('focus');
 		
 	}, false);

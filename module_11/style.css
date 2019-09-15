@@ -16,18 +16,21 @@ nav, form{
 a{
 	margin-left: 10PX;
 	padding: 20px 10px;
-	font-family: Arial, serif;
-	line-height: 28px;
+	font-family: Arial, sans-serif;
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #000;
-}
-input{
-	width: 200px;
-	height: 28px;
-
 }
 .focus{
 	text-decoration: underline;
 	color: green;
 }
+input{
+	border: 1px solid transparent;
+	background: #f1f1f1;
+	width: 300px;
+	
+	font-size: 20px;
+	padding: 10px;
+}
+input

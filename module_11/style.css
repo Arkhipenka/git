@@ -17,6 +17,7 @@ a{
 	margin-left: 10PX;
 	padding: 20px 10px;
 	font-family: Arial, serif;
+	line-height: 28px;
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #000;
@@ -24,6 +25,7 @@ a{
 input{
 	width: 200px;
 	height: 28px;
+
 }
 .focus{
 	text-decoration: underline;

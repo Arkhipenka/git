@@ -1,16 +1,51 @@
+let arrNav = ["menu", "news", "setting", "on demand"];
+
 window.addEventListener('load', function(event){
 	let nav = document.createElement('nav');
-	let arrNav = ["menu", "news", "setting", "on demand"];
+	
 	nav.id = "nav";
+	let index = 0;
+
 
 	for(let i = 0; i < arrNav.length; i++){
+		let link = document.createElement('a');
+		link.href = '#';
 		if(i === 0){
-			nav.innerHTML += "<a herf='#' class='focus'>" + arrNav[i] + "</a>"
+			link.classList.add('focus');
+			link.textContent = arrNav[i];
+			nav.append(link);
 		}else{
-			nav.innerHTML += "<a href='#'>" + arrNav[i] + "</a>";
+			link.textContent = arrNav[i];
+			nav.append(link)
 		}
 		
-		
 	}
-	document.body.insertBefore(nav,document.body.firstChild);
-})
+	window.addEventListener('keydown', function(event){
+		
+		let arrLink = document.getElementsByTagName('a');
+		arrLink[index].classList.remove('focus');
+		const key = event.key;
+		
+			if(event.key = 'ArrowLeft'){
+					index--;
+				if(index === -1){
+					index = arrLink.length - 1;
+				}
+			}
+			if(event.key = 'ArrowRight'){
+				if (index === arrLink.length) {
+					index = 0;
+				}			
+			}
+		
+		/*if(index === -1){
+			index = arrLink.length - 1;
+		}*/
+		
+		arrLink[index].classList.add('focus');
+		
+	}, false);
+	document.body.append(nav);
+});
+
+

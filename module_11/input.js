@@ -1,6 +1,4 @@
-
-
-//import * as createAutocomplete from '../module_5/index.js';
+//import {createAutoComplete} from '../module_5/index.js';
 
 window.addEventListener("load", function(event) {
 	let form = document.createElement('form');
@@ -13,4 +11,20 @@ window.addEventListener("load", function(event) {
 	input.autocomplete ="on";
 	form.append(input);
 	document.body.append(form);
-})
+	
+});
+
+let val = document.getElementById('autocomplete').value;
+
+function createAutoComplete(arr){
+
+	function autoComplete(inp){
+		if(!inp){
+		 return [];
+		}
+		return arr.filter(item => item.toLowerCase().indexOf(inp.toLowerCase(inp)) === 0);		
+	}
+  return autoComplete;
+}
+
+createAutoComplete(val);

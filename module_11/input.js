@@ -1,7 +1,7 @@
 
 
-//import * as createAutocomplete from '../module_5/index.js';
-let arr = ['array', 'kare','arn','a','alk','karen'];
+/*import * as createAutocomplete from '../module_5/index.js';
+let arr = ['array', 'kare','arn','a','alk','karen'];*/
 
 window.addEventListener("load", function(event) {
 	let form = document.createElement('form');
@@ -28,13 +28,15 @@ function createAutoComplete(arr){
   return autoComplete;
 };
 
-let autocomplete = createAutoComplete(arr);
+/*let autocomplete = createAutoComplete(arr);
 
-let a = document.getElementsByTagName('input').value;
-
+let a = document.getElementsByTagName('input');
+let b = document.createElement('p');
 a.oninput = function(){
-	result.innerHTML = input.a;
-};
+	
+	
+	
+};b.innerHTML = autocomplete(a.value);
+document.body.append(b);
 
-autocomplete(document.body.getElementByid);
-// module.exports.createAutoComplete = createAutoComplete;
+// module.exports.createAutoComplete = createAutoComplete;*/

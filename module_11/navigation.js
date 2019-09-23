@@ -1,4 +1,4 @@
-let arrNav = ["menu", "news", "setting", "on demand"];
+const arrNav = ["menu", "news", "setting", "on demand"];
 
 window.addEventListener('load', function(event){
 	let nav = document.createElement('nav');

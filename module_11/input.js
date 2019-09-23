@@ -1,4 +1,7 @@
-//import {createAutoComplete} from '../module_5/index.js';
+
+
+//import * as createAutocomplete from '../module_5/index.js';
+let arr = ['array', 'kare','arn','a','alk','karen'];
 
 window.addEventListener("load", function(event) {
 	let form = document.createElement('form');
@@ -11,10 +14,7 @@ window.addEventListener("load", function(event) {
 	input.autocomplete ="on";
 	form.append(input);
 	document.body.append(form);
-	
 });
-
-let val = document.getElementById('autocomplete').value;
 
 function createAutoComplete(arr){
 
@@ -22,9 +22,19 @@ function createAutoComplete(arr){
 		if(!inp){
 		 return [];
 		}
-		return arr.filter(item => item.toLowerCase().indexOf(inp.toLowerCase(inp)) === 0);		
-	}
+		return arr.filter(item => item.toLowerCase().indexOf(inp.toLowerCase(inp)) === 0);
+				
+	};
   return autoComplete;
-}
+};
 
-createAutoComplete(val);
+let autocomplete = createAutoComplete(arr);
+
+let a = document.getElementsByTagName('input').value;
+
+a.oninput = function(){
+	result.innerHTML = input.a;
+};
+
+autocomplete(document.body.getElementByid);
+// module.exports.createAutoComplete = createAutoComplete;

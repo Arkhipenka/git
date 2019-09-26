@@ -13,6 +13,9 @@ nav, form{
 	align-items: stretch;
 	background: #fcfc;
 }
+form{
+	position:relative;
+}
 a{
 	margin-left: 10PX;
 	padding: 20px 10px;
@@ -24,6 +27,13 @@ a{
 .focus{
 	text-decoration: underline;
 	color: green;
+}ul{
+	margin: 0;
+	position: absolute;
+	top: 20px;
+}
+li{
+	list-style: none;
 }
 input{
 	border: 1px solid transparent;
@@ -32,4 +42,3 @@ input{
 	font-size: 20px;
 	padding: 10px;
 }
-input

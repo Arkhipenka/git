@@ -7,15 +7,13 @@ body{
 	height: 100vh;
 	margin: 0;
 }
-nav, form{
+nav{
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
 	background: #fcfc;
 }
-form{
-	position:relative;
-}
+
 a{
 	margin-left: 10PX;
 	padding: 20px 10px;
@@ -27,13 +25,20 @@ a{
 .focus{
 	text-decoration: underline;
 	color: green;
-}ul{
+}
+.autocomplete{
+	display: flex;
+	flex-direction: column;
+
+}
+ul{
 	margin: 0;
-	position: absolute;
-	top: 20px;
+	padding: 0;
 }
 li{
+	padding: 5px 10px;
 	list-style: none;
+	background: #f1f1f1;
 }
 input{
 	border: 1px solid transparent;

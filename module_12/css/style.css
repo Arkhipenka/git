@@ -28,6 +28,28 @@ section{
 	background: #fff;
 
 }
+ul{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-end;
+	overflow: auto;
+	padding: 20px;
+}
+li{
+	list-style: none;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 15px;
+}
+.MyMessage{
+	background: #c2c2c2;
+	align-items: flex-end;
+}
+.OtherMessage{
+	align-self: flex-start;
+	background: #5c3cf1;
+}
 form{
 	display: flex;
 	flex-direction: row;

@@ -40,30 +40,51 @@ window.addEventListener("load", function(event) {
 	button.addEventListener('click',(event) => {
 		event.preventDefault();
 		const value = input.value;
+		const date = new Date(Date.now());
+		let dateNow = date.getHours() + ':' + date.getMinutes();
 		if(count < 100){
-			renderUserMessageToSection(value, messages, true);
+			renderMessage({
+				from: "Andrei",
+				message: value,
+				id: count++, // unique id of message
+				time: dateNow, // time when message has been received
+			}, messages, true);
 		}
 		
 	})
 
-	this.setInterval(() => {
+		this.setInterval(() => {
+		const date = new Date(Date.now());
+		let dateNow = date.getHours() + ':' + date.getMinutes();
 		if(count < 100){
-			renderUserMessageToSection('hi', messages, false);
+			renderMessage({
+				from: "Alexei",
+				message: "Hello. You are win!",
+				id: count++, // unique id of message
+				time: dateNow, // time when message has been received
+			}, messages, false);
 		}
 		}, Math.random() * 50000 + 1000);
 });
 
-function renderUserMessageToSection(text, messages, messageIsMine) {
-		const message = document.createElement('li');
+function renderMessage(message, messages, messageIsMine) {
+		const li = document.createElement('li');
 		if(messageIsMine){
-			message.className = "MyMessage";
+			li.className = "MyMessage";
 		}else{
-			message.className ="OtherMessage";
+			li.className ="OtherMessage";
 		}
-		message.textContent = text;
-		messages.append(message);
-		count++;
-		console.log(count);
+		const text = document.createElement('p');
+		text.textContent = message.message;
+		
+		const user = document.createElement('h5');
+		user.textContent = message.from;
+
+		const date = document.createElement('span');
+		date.textContent = message.time;
+		li.appendChild(user);
+		li.appendChild(text).appendChild(date);
+		messages.appendChild(li);
 }
 
 // так будем вызывать

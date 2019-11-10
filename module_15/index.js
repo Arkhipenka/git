@@ -1,31 +1,39 @@
 const https = require('https');
 const path = require('path');
 const stream = require('stream');
+const fs = require('fs');
 
-/*const pathToFile = path.join(__dirname, 'list.pdf');
-const readable = http.createReadStream(pathToFile){
+function getPageSpeedAndSave(url){
 
-}*/
-
-https.get('https://www.googleapis.com/pagespeedonline/v4/runPagespeed', (resp) => {
+https.get('https://www.googleapis.com/pagespeedonline/v4/runPagespeed' + '?url=' + url, (resp) => {
   let data = '';
 
-  // A chunk of data has been recieved.
+  
   resp.on('data', (chunk) => {
     data += chunk;
   });
 
-  // The whole response has been received. Print out the result.
   resp.on('end', () => {
-    console.log(JSON.parse(data).explanation);
+	fs.appendFile('result.txt', data, function(error){
+		 if(error) throw error; 
+    	console.log("Асинхронная запись файла завершена. Содержимое файла:");
+    	let data = fs.readFileSync("result.txt", "utf8");
+    	console.log(data);  
+	});
+    console.log(JSON.parse(data));
   });
 
 }).on("error", (err) => {
   console.log("Error: " + err.message);
 });
+};
 
-/*;
+let fileContent = fs.readFileSync("url.txt", "utf8");
+console.log(fileContent);
 
-let counter = 0;
-const writable = http.createWriteSteam(_filename);
-*/
+let url = fileContent.split(/\s+/);
+console.log(url);
+
+for(let i = 0; i < url.length; i++){
+	getPageSpeedAndSave(url[i]);
+}
